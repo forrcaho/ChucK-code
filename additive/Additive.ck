@@ -1,4 +1,4 @@
-public class Additive {
+public class Additive extends Chubgraph {
 
     float baseFreq;
     float noteAmplitude;
@@ -6,11 +6,12 @@ public class Additive {
 
     fun int numPartials() { return 20; }
 
-    fun void initPartials(float baseFreq, float noteAmplitude)
+    fun AdditivePartial initPartial(int partialNumber)
     {
-        for (0 => int i; i < numPartials(); i++) {
-            AdditivePartial.init(i+1, baseFreq, noteAmplitude) @=> partial[i];
-        }
+        new AdditivePartial @=> AdditivePartial ap;
+        ap.init(partialNumber, baseFreq, noteAmplitude);
+        ap => outlet;
+        return ap;
     }
 
     fun void play(dur duration)
@@ -21,13 +22,13 @@ public class Additive {
         duration => now;
     }
 
-    fun static Additive init(float baseFreq, float noteAmplitude)
+    fun void init(float baseFreq, float noteAmplitude)
     {
-        new Additive @=> Additive a;
-        baseFreq => a.baseFreq;
-        noteAmplitude => a.noteAmplitude;
-        a.initPartials(baseFreq, noteAmplitude);
-        return a;
+        baseFreq => this.baseFreq;
+        noteAmplitude => this.noteAmplitude;
+        for (0 => int i; i < numPartials(); i++) {
+            initPartial(i+1) @=> partial[i];
+        }
     }
 }
 

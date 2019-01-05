@@ -11,15 +11,16 @@ public class AdditivePartial extends SinOsc {
     float baseFreq;
     float noteAmplitude;
 
-    fun static AdditivePartial init( int partialNumber, float baseFreq, float noteAmplitude ) 
+    fun void init( int partialNumber, float baseFreq, float noteAmplitude ) 
     {
-        new AdditivePartial @=> AdditivePartial ap;
-        ap => dac;
-        partialNumber => ap.partialNumber;
-        baseFreq => ap.baseFreq;
-        noteAmplitude => ap.noteAmplitude;
-        return ap;
+        partialNumber => this.partialNumber;
+        baseFreq => this.baseFreq;
+        noteAmplitude => this.noteAmplitude;
+        // be silent until play() is called
+        0 => this.gain;
+        0 => this.freq;
     }
+
     /*
     Control step duration. Duration to play before adjusting aplitude & frequency for each partial.
     A setting of 1::samp can easily use too much compute power and lead to glitches.
@@ -87,5 +88,8 @@ public class AdditivePartial extends SinOsc {
             step => now;
             now - start => timeLoc;
         }
+        // return to silence now that play() is complete
+        0 => this.gain;
+        0 => this.freq;
     }
 }
