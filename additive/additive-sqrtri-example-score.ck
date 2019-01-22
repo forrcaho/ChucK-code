@@ -1,10 +1,10 @@
 new AdditiveSqrTri @=> AdditiveSqrTri a;
 a => dac;
-a.init(220.0, 0.1, 0.25);
+a.init(55.0, 0.1, 0.25);
 
 new AdditiveSqrTri @=> AdditiveSqrTri b;
 b => dac;
-b.init(330.0, 0.1, 0.1875);
+b.init(82.5, 0.1, 0.1875);
 
 
 spork ~ a.play(12::second);

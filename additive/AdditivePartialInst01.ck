@@ -24,6 +24,11 @@ public class AdditivePartialInst01 extends AdditivePartial {
         }
     }
 
+    fun dur controlDur()
+    {
+        return 16::samp;
+    }
+
     fun float env1( dur timeLoc, dur duration )
     {
         peakAmplitude * Math.sin(0.5 * Math.PI * (duration/peakLoc)) => float env;

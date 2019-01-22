@@ -4,7 +4,7 @@ public class Additive extends Chubgraph {
     float noteAmplitude;
     AdditivePartial @ partial[numPartials()];
 
-    fun int numPartials() { return 20; }
+    fun int numPartials() { return 25; }
 
     fun AdditivePartial initPartial(int partialNumber)
     {
