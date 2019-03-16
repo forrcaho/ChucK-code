@@ -8,7 +8,8 @@ public class AdditivePartialSqrTri extends AdditivePartial {
         detune => this.detune;
     }
 
-    fun float partialFrequency(dur timeLoc, dur duration ) {
+    fun float partialFrequency(dur timeLoc, dur duration )
+    {
         baseFreq * (2*partialNumber - 1) => float f;
         if (partialNumber % 2 == 0) {
             detune -=> f;

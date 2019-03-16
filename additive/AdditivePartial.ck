@@ -27,7 +27,7 @@ public class AdditivePartial extends SinOsc {
     */
     fun dur controlDur()
     {
-        return 4::samp;
+        return 16::samp;
     }
 
     /*
