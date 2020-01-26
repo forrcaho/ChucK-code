@@ -1,5 +1,7 @@
-Here is an implementation of additive synthesis in ChucK which should be easy
-to adapt.
+# Class-based Additive Sythesis in ChucK
+
+Here is a class-based implementation of additive synthesis in ChucK which
+should be easy to adapt.
 
 `Additive` is a base class which contains an array of partials, each of
 which is implmented by the `AdditivePartial` base class.
