@@ -98,4 +98,9 @@ public class FluidInstrument {
         note @=> notes[channel - channelOffset][noteNum];
         return note;
     }
+
+    fun void destroyFluidNote(FluidNote note)
+    {
+        null @=> notes[note.channel][note.noteNum];
+    }
 }
