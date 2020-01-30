@@ -8,9 +8,9 @@ class FluidInstrument {
     int channelCount;  // number of MIDI channels this instrument uses
     int channelOffset; // first (zero-based) MIDI channel of this instrument
 
-    fun void init(FluidSynth synth, int instrumentIndex, 
-                  int channelOffset, int channelCount,
-                  int bank, int program) {};
+    fun void _init(FluidSynth synth, int instrumentIndex, 
+                   int channelOffset, int channelCount,
+                   int bank, int program) {};
 }
 
 */
@@ -37,7 +37,7 @@ public class FluidEngine extends Chubgraph {
             Machine.crash();
         }
         FluidInstrument inst;
-        inst.init(synth, nextInstrumentIndex, minUnassignedChannel, channelCount, bank, program);
+        inst._init(synth, nextInstrumentIndex, minUnassignedChannel, channelCount, bank, program);
         inst.channelOffset + inst.channelCount => minUnassignedChannel;
         inst @=> instruments[inst.instrumentIndex];
         nextInstrumentIndex++;

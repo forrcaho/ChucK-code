@@ -8,7 +8,7 @@ class FluidNote {
     int noteNum;
     float cents;
 
-    fun void init(FluidSynth synth, float cents, int channel, int noteNum){}
+    fun void _init(FluidSynth synth, float cents, int channel, int noteNum){}
 }
 
 */
@@ -20,9 +20,9 @@ public class FluidInstrument {
     int channelCount;  // number of MIDI channels this instrument uses
     FluidNote @ notes[][];
 
-    fun void init(FluidSynth synth, int instrumentIndex, 
-                  int channelOffset, int channelCount,
-                  int bank, int program)
+    fun void _init(FluidSynth synth, int instrumentIndex, 
+                   int channelOffset, int channelCount,
+                   int bank, int program)
     {
         synth @=> this.synth;
         instrumentIndex => this.instrumentIndex;
@@ -94,7 +94,7 @@ public class FluidInstrument {
     fun FluidNote _createFluidNote(float cents, int channel, int noteNum)
     {
         FluidNote note;
-        note.init(synth, cents, channel, noteNum);
+        note._init(synth, cents, channel, noteNum);
         note @=> notes[channel - channelOffset][noteNum];
         return note;
     }

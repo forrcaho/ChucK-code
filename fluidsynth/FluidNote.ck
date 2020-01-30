@@ -4,7 +4,8 @@ public class FluidNote {
     int channel;
     int noteNum;
 
-    fun void init(FluidSynth synth, float cents, int channel, int noteNum){
+    fun void _init(FluidSynth synth, float cents, int channel, int noteNum)
+    {
         synth @=> this.synth;
         cents => this.cents;
         channel => this.channel;
